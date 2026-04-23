@@ -1,0 +1,66 @@
+{
+  "name": "@tcknvkn/js",
+  "version": "1.0.0",
+  "description": "TC Kimlik Numarası (TCKN) ve Vergi Kimlik Numarası (VKN) doğrulama kütüphanesi (Node.js/TypeScript)",
+  "author": "tckn-vkn",
+  "license": "MIT",
+  "homepage": "https://www.tcknvkn.com/kutuphaneler/nodejs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tcknvkn/tcknvkn-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tcknvkn/tcknvkn-js/issues"
+  },
+  "keywords": [
+    "tckn",
+    "vkn",
+    "tc üret",
+    "tc uret",
+    "tc no üret",
+    "tc no uret",
+    "tc oluştur",
+    "tckn üret",
+    "vkn üret",
+    "vergi no üret",
+    "vergi no oluşturucu",
+    "vkn algoritması",
+    "vkn doğrulama algoritması",
+    "turkish id",
+    "vergi kimlik"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "pretest": "npm run build",
+    "test": "node --test tests/validator.test.js",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}
